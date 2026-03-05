@@ -15,18 +15,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-    children,
-}: Readonly<{
+                                       children,
+                                   }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
         <ClerkProvider>
             <html lang="en" className="dark">
-                <body
-                    className={`${inter.variable} antialiased bg-background text-foreground`}
-                >
-                    <Providers>{children}</Providers>
-                </body>
+            <body
+                className={`${inter.variable} antialiased bg-background text-foreground`}
+            >
+            <Providers>{children}</Providers>
+
+            <script src="/tracker.js" data-api-url={process.env.NEXT_PUBLIC_DJANGO_API_URL}></script>
+            </body>
             </html>
         </ClerkProvider>
     );
